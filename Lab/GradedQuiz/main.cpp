@@ -8,6 +8,7 @@
 //System Libraries Here
 #include <iostream>
 #include <fstream>  //Reading and opening files
+#include <string>
 using namespace std;
 
 //User Libraries Here
@@ -24,19 +25,31 @@ void score(int[],int);               //Numerical result
 //Program Execution Begins Here
 int main(int argc, char** argv) {
     //Declare all Variables Here
-   
+    const int SIZE=20;
+    char key[SIZE], stuResp[SIZE];
+    int scr[SIZE]={};
+    string keyFn, stuRFn, scoreFn;
     
     //Input or initialize values Here
+    keyFn="key.dat";
+    stuRFn="answer.dat";
+    scoreFn="result.dat";
+    
+    rdFile(keyFn,key,SIZE);
+    rdFile(stuRFn,stuResp,SIZE);
     
     //Process/Calculations Here
+    grade(key,stuResp,scr,SIZE);
     
     //Output Located Here
+    cout<<"Your test result score was = "<<score(scr,SIZE)<<endl;
+    wrtFile(scoreFn,scr,SIZE);
     
     //Exit
     return 0;
 }
 
-void witFile(string fn,int pts[],int n){
+void wrtFile(string fn,int pts[],int n){
     //Declare file variable
     ofstream out;
     //Open the file
@@ -70,7 +83,8 @@ void rdFile(string fn,char a[],int n){
     //Open the file
     in.open(fn.c_str());
     //Read the values
-    while(in>>a[cnt++]);
+    while(in>>a[cnt++]&&cnt<n);
+    cout<<cnt<<endl;
     //Close the file
     in.close();
 }
