@@ -20,10 +20,10 @@ using namespace std;
 //Like PI, e, Gravity, or conversions
 const float PERCENT=100;
 //Function Prototypes Here
-char rollDie(int);
-void fileDsp(ofstream &, int [], int [], int, int, int, int);
-void scrnDsp(int [], int [], int, int, int, int);
-void crpGame(int [], int [], int, int, int, int);
+char rollDie(int);                                            //Roll the dice
+void fileDsp(ofstream &, int [], int [], int, int, int, int); //File Display
+void scrnDsp(int [], int [], int, int, int, int);             //Screen Display
+void crpGame(int [], int [], int, int, int, int);             //Play Craps
 
 //Program Execution Begins Here
 int main(int argc, char** argv) {
